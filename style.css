@@ -33,8 +33,8 @@ body {
     justify-content: center;
 }
 .container {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background: var(--background);
     backdrop-filter: blur(0.5rem);
     display: flex;
