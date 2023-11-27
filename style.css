@@ -1,198 +1,151 @@
-/* Import Google Font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #43AFFC;
-}
-::selection{
-  color: #fff;
-  background: #43AFFC;
-}
-.wrapper{
-  width: 400px;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
-}
-.wrapper header{
-  display: flex;
-  font-size: 21px;
-  font-weight: 500;
-  color: #43AFFC;
-  padding: 16px 15px;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-}
-header i{
-  font-size: 0em;
-  cursor: pointer;
-  margin-right: 8px;
-}
-.wrapper.active header i{
-  margin-left: 5px;
-  font-size: 30px;
-}
-.wrapper .input-part{
-  margin: 20px 25px 30px;
-}
-.wrapper.active .input-part{
-  display: none;
-}
-.input-part .info-txt{
-  display: none;
-  font-size: 17px;
-  text-align: center;
-  padding: 12px 10px;
-  border-radius: 7px;
-  margin-bottom: 15px;
-}
-.input-part .info-txt.error{
-  color: #721c24;
-  display: block;
-  background: #f8d7da;
-  border: 1px solid #f5c6cb;
-}
-.input-part .info-txt.pending{
-  color: #0c5460;
-  display: block;
-  background: #d1ecf1;
-  border: 1px solid #bee5eb;
-}
-.input-part :where(input, button){
-  width: 100%;
-  height: 55px;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  border-radius: 7px;
-}
-.input-part input{
-  text-align: center;
-  padding: 0 15px;
-  border: 1px solid #ccc;
-}
-.input-part input:is(:focus, :valid){
-  border: 2px solid #43AFFC;
-}
-.input-part input::placeholder{
-  color: #bfbfbf;
-}
-.input-part .separator{
-  height: 1px;
-  width: 100%;
-  margin: 25px 0;
-  background: #ccc;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.separator::before{
-  content: "or";
-  color: #b3b3b3;
-  font-size: 19px;
-  padding: 0 15px;
-  background: #fff;
-}
-.input-part button{
-  color: #fff;
-  cursor: pointer;
-  background: #43AFFC;
-  transition: 0.3s ease;
-}
-.input-part button:hover{
-  background: #1d9ffc;
+/*-----------------  GOOGLE FONTS  -----------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap');
+
+/*-----------------  VARIABLES  -----------------*/
+:root {
+    /* Colors */ 
+    --orange-color: rgb(246, 99, 53);
+    --dark-color:rgb(27, 31, 41);
+    --border: rgba(255, 255, 255, 0.25);
+    --background: rgba(255, 255, 255, 0.1);
+    --box_shadow: rgba(3, 46, 87, 0.3);
 }
 
-.wrapper .weather-part{
-  display: none;
-  margin: 30px 0 0;
+html{
+    font-size: 10px;
+    /* Now 1rem = 10px */
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: url(images/background.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 35%;
+    height: auto;
+    background: var(--background);
+    backdrop-filter: blur(0.5rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
+}
+.search_box {
+  width: 40rem;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 3rem;
+  padding: 1rem 1rem;
+  backdrop-filter: blur(0.4rem) saturate(180%);
+  box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
+  margin-top: 5rem;
+} 
+.search_box input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 0 1rem;
+  font-size: 1.6rem;
+  color:var(--dark-color);
+}
+.search_box input::placeholder {
+  color: var(--dark-color);
+}
+.search_box button {
+  border: 0;
+  border-radius: 50%;
+  background:var(--orange-color);
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+}
+.search_box .icon {
+  width: 2rem;
+  height: 2rem; 
+  padding: 0.5rem;
+  color: var(--dark-color); 
+}
+.error {
+  margin: 4rem 0 5rem 0;
+  color: var(--dark-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+#show {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.wrapper.active .weather-part{
-  display: flex;
-}
-.weather-part img{
-  max-width: 125px;
-}
-.weather-part .temp{
-  display: flex;
-  font-weight: 500;
-  font-size: 72px;
-}
-.weather-part .temp .numb{
+#show h2 {
+  color: var(--dark-color);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
   font-weight: 600;
+  font-size: 2.6rem;
+  margin: 3rem 0 2rem 0;
 }
-.weather-part .temp .deg{
-  font-size: 40px;
-  display: block;
-  margin: 10px 5px 0 0;
+.weather, .desc {
+  color: var(--dark-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2rem;
 }
-.weather-part .weather{
-  font-size: 21px;
-  text-align: center;
-  margin: -5px 20px 15px;
+.weather {
+  margin: 1rem 0;
 }
-.weather-part .location{
+#show img {
+  margin: 2rem 0 0 0;
+  width: 10rem;
+  filter: drop-shadow(0 1.8rem 3.7rem var(--shadow));
+}
+#show h1 {
+  font-size: 6rem;
+  margin: 2rem 0 2rem 0;
+  line-height: 0;
+  font-weight: 400;
+  color: var(--dark-color);
+}
+.temp_container {
   display: flex;
-  font-size: 19px;
-  padding: 0 20px;
-  text-align: center;
-  margin-bottom: 30px;
-  align-items: flex-start;
-}
-.location i{
-  font-size: 22px;
-  margin: 4px 5px 0 0;
-}
-.weather-part .bottom-details{
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  border-top: 1px solid #ccc;
-}
-.bottom-details .column{
-  display: flex;
-  width: 100%;
-  padding: 15px 0;
-  align-items: center;
   justify-content: center;
+  margin: 3rem 0 5rem 0;
+  text-align: center;
 }
-.column i{
-  color: #5DBBFF;
-  font-size: 40px;
+.temp_container div {
+  padding: 1rem 1.5rem;
 }
-.column.humidity{
-  border-left: 1px solid #ccc;
+.temp_container div:first-child {
+  border-right: 0.1rem solid var(--border);
 }
-.column .details{
-  margin-left: 3px;
+.temp_container .title {
+  font-weight: 600;
+  color: var(--dark-color);
+  font-size: 1.6rem;
 }
-.details .temp, .humidity span{
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: -3px;
+.temp_container .temp {
+  font-weight: 600;
+  color: var(--orange-color);
+  font-size: 1.6rem;
 }
-.details .temp .deg{
-  margin: 0;
-  font-size: 17px;
-  padding: 0 2px 0 1px;
-}
-.column .details p{
-  font-size: 14px;
-  margin-top: -6px;
-}
-.humidity i{
-  font-size: 37px;
-}
+
